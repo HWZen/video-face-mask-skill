@@ -41,6 +41,20 @@ Do not assume that installing into the base environment is acceptable.
 
 Do not install YOLO or Ultralytics for this skill.
 
+Required toolchain also includes:
+
+- `ffmpeg`
+- `ffprobe`
+
+If `ffmpeg` or `ffprobe` is missing, install them instead of just failing.
+
+Typical handling:
+
+- first check `ffmpeg -version` and `ffprobe -version`
+- if missing on Windows, prefer an existing package manager the user already uses, such as `winget`, `choco`, or `scoop`
+- if no package manager is available and the user is inexperienced, choose a straightforward Windows install path yourself and make sure the binaries end up in `PATH`
+- after installation, verify both commands again before proceeding
+
 Required runtime stack:
 
 - `insightface`
@@ -57,6 +71,8 @@ GPU check:
 - on Windows, if ONNX Runtime GPU DLL loading is likely to be a problem, install `torch` for CUDA runtime DLL availability only
 
 The helper script already knows how to add `torch\lib` to the DLL search path when `torch` is installed.
+
+When you install dependencies, include the full runtime environment, not just Python packages.
 
 ### 3. Validate Required User Inputs
 

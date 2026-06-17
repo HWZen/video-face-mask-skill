@@ -1,6 +1,6 @@
 # video-face-mask-skill
 
-OpenCode skill + helper script for masking faces in videos with `InsightFace` + `OpenCV`.
+Reusable AI skill + helper script for masking faces in videos with `InsightFace` + `OpenCV`.
 
 This repo focuses on one practical workflow:
 
@@ -8,6 +8,18 @@ This repo focuses on one practical workflow:
 - cover them with either mosaic or a sticker image
 - keep the original audio track by default
 - prefer GPU inference/encoding when available, otherwise fall back cleanly
+
+## Core Skill File
+
+If another AI agent or automation tool needs the actual skill instructions, the core skill file is:
+
+- `D:/Github/video-face-mask-skill/.opencode/skills/video-face-mask/SKILL.md`
+
+Repo-relative path:
+
+- `.opencode/skills/video-face-mask/SKILL.md`
+
+That file contains the workflow rules, environment-selection logic, dependency-selection logic, required user-input checks, execution defaults, and parameter-tuning guidance.
 
 ## Repo Layout
 
@@ -64,6 +76,6 @@ python scripts/face_mask_video.py --input input.mp4 --output output.mp4 --mode s
 
 ## Notes
 
-- `ffmpeg` and `ffprobe` must be available in `PATH`.
+- `ffmpeg` and `ffprobe` are part of the required environment. If they are missing, the operator or AI agent should install them and ensure they are in `PATH` before processing.
 - On Windows + NVIDIA, `onnxruntime-gpu` may need CUDA/cuDNN DLLs. This repo's workflow can use `torch` only as a runtime DLL provider for ONNX Runtime. It is not used for YOLO.
 - The skill itself contains the environment-selection and installation rules, including when to ask the user and when to decide for a beginner.
