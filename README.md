@@ -11,9 +11,9 @@ This repo focuses on one practical workflow:
 
 ## Core Skill File
 
-If another AI agent or automation tool needs the actual skill instructions, the core skill file is:
+If another AI agent or automation tool needs the actual skill instructions, the core skill file is at your local clone path, for example:
 
-- `D:/Github/video-face-mask-skill/.opencode/skills/video-face-mask/SKILL.md`
+- `path/to/video-face-mask-skill/.opencode/skills/video-face-mask/SKILL.md`
 
 Repo-relative path:
 
@@ -37,7 +37,7 @@ Point OpenCode at this repo's skill directory:
   "$schema": "https://opencode.ai/config.json",
   "skills": {
     "paths": [
-      "D:/Github/video-face-mask-skill/.opencode/skills"
+      "path/to/video-face-mask-skill/.opencode/skills"
     ]
   }
 }
