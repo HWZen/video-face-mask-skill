@@ -21,16 +21,18 @@ Repo-relative path:
 
 That file contains the workflow rules, environment-selection logic, dependency-selection logic, required user-input checks, execution defaults, and parameter-tuning guidance.
 
+The repository stores the skill under `.opencode/skills/...`, but the file itself is just Markdown with frontmatter and can be reused by other AI agents or automation systems.
+
 ## Repo Layout
 
-- `.opencode/skills/video-face-mask/SKILL.md`: the reusable OpenCode skill
+- `.opencode/skills/video-face-mask/SKILL.md`: the reusable skill definition
 - `scripts/face_mask_video.py`: helper script the skill runs
 - `requirements-cpu.txt`: CPU dependencies
 - `requirements-gpu.txt`: NVIDIA GPU dependencies
 
-## Use In OpenCode
+## Example OpenCode Integration
 
-Point OpenCode at this repo's skill directory:
+If you use OpenCode, point it at this repo's skill directory:
 
 ```json
 {
@@ -44,6 +46,8 @@ Point OpenCode at this repo's skill directory:
 ```
 
 Then restart OpenCode.
+
+If you use a different AI tool, adapt that tool's skill or prompt-loading mechanism to read `.opencode/skills/video-face-mask/SKILL.md` directly.
 
 ## What The Script Does
 
@@ -78,4 +82,4 @@ python scripts/face_mask_video.py --input input.mp4 --output output.mp4 --mode s
 
 - `ffmpeg` and `ffprobe` are part of the required environment. If they are missing, the operator or AI agent should install them and ensure they are in `PATH` before processing.
 - On Windows + NVIDIA, `onnxruntime-gpu` may need CUDA/cuDNN DLLs. This repo's workflow can use `torch` only as a runtime DLL provider for ONNX Runtime. It is not used for YOLO.
-- The skill itself contains the environment-selection and installation rules, including when to ask the user and when to decide for a beginner.
+- The skill file itself contains the environment-selection and installation rules, including when to ask the user and when to decide for a beginner.
