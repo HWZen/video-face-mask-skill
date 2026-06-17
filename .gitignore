@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+*.tmp
+*.log
+*.mp4
+*.mov
+*.mkv
+*.avi
+*.png
+*.jpg
+!README.md
+!.opencode/
+!scripts/

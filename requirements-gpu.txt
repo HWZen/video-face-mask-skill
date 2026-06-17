@@ -1,0 +1,4 @@
+insightface
+opencv-python
+tqdm
+onnxruntime-gpu==1.20.1
